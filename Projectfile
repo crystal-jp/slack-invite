@@ -1,0 +1,4 @@
+deps do
+  github "Codcore/amethyst"
+  github "spalger/crystal-mime"
+end
