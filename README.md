@@ -1,3 +1,6 @@
-The OpenShift `diy` cartridge documentation can be found at:
+# crystal-jp-slack-invite
+Automatic inviting in Slack Team for Crystal-JP.
 
-http://openshift.github.io/documentation/oo_cartridge_guide.html#diy
+## License
+MIT License<br />
+Copyright (c) 2015 Pine Mizune
