@@ -5,7 +5,7 @@ class SlackInviteController < Controller
 
   view "index", "#{__DIR__}/../views"
   def index
-    render "index"
+    html render("index")
   end
 
   def invite
