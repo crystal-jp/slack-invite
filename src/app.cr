@@ -10,7 +10,7 @@ class App < Base::App
   end
 
   settings.configure do |conf|
-    conf.environment = "development"
+    #conf.environment = "development"
     conf.static_dirs = ["/assets"]
   end
 end

@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+body {
+  padding-top: 15px;
+}
+
+.form-wrapper {
+  margin-top: 50px;
+}
+
+h1 {
+  padding: 2px 0 0 42px;
+  background: url("/assets/slack.png") no-repeat left top;
+}
+
+.help-block .message {
+  display: none;
+}
