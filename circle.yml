@@ -1,0 +1,29 @@
+machine:
+  ruby:
+    version: 2.2.2
+
+dependencies:
+  pre:
+    - .circle/install-crenv.bash
+    - crenv --version
+    - .circle/install-crystal.bash
+    - crystal --version
+
+  override:
+    - crystal deps
+
+  cache_directories:
+    - .crystal
+    - .deps
+    - ~/.crenv
+
+test:
+  override:
+    - crystal spec
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - bundle install --deployment --path=vendor/bundle
+      - bundle exec rake deploy
