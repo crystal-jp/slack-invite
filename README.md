@@ -1,4 +1,4 @@
-# crystal-jp-slack-invite
+# slack-invite
 Automatic inviting in Slack Team for Crystal-JP.
 
 ## License
