@@ -9,6 +9,7 @@ task :deploy do
 
   rbox.cd %w[../slack-invite.local]
   rbox.disable_safe_mode
-  rbox.execute 'bash ./stop-slack-invite'
-  rbox.execute 'bash ./start-slack-invite'
+  rbox.execute 'bash ./build'
+  rbox.execute 'bash ./stop'
+  rbox.execute 'bash ./start'
 end
