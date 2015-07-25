@@ -3,6 +3,9 @@ MAINTAINER Pine Mizune <pinemz@gmail.com>
 
 EXPOSE 8080
 
+RUN sudo apt-get update
+RUN sudo apt-get install git -y
+
 ADD . /opt/slack-invite
 WORKDIR /opt/slack-invite
 
