@@ -1,37 +1,39 @@
 $(function() {
   'use strict';
 
-  function setMessage(message) {
-    $(".help-block .default").hide();
-    $(".help-block .message").text(message).show();
+  function setMessage(klass, opt) {
+    $(".help-block > span").hide();
+    $(".help-block ." + klass).show();
+    $(".help-block ." + klass + " .opt").text(opt || '');
+    console.log(opt);
   }
 
   $('form').on('submit', function (e) {
     e.stopPropagation();
     e.preventDefault();
 
-    setMessage("送信中...");
+    setMessage('progress');
     $('#email').prop('disabled', true);
 
     $.ajax('/invite', {
       method: 'POST',
-      data: { email: $('#email').val() },
+      data: { email: $('#email').val(), team: $('#team').val() },
       dataType: 'json'
     })
 
     .done(function (data) {
       if (data && data.ok) {
-        setMessage('招待に成功しました。');
+        setMessage('succeeded');
         $('#email').val('');
       }
 
       else {
-        setMessage('招待に失敗しました (' + data.error + ')。');
+        setMessage('failed', '(' + data.error + ')');
       }
     })
 
     .fail(function () {
-      setMessage("招待に失敗しました。");
+      setMessage('failed');
     })
 
     .always(function () {

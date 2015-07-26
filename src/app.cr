@@ -5,6 +5,7 @@ require "./controllers/*"
 class App < Base::App
   routes.draw do
     all "/", "slack_invite#index"
+    all "/en/", "slack_invite#index"
     post "/invite", "slack_invite#invite"
     register SlackInviteController
   end
