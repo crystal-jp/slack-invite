@@ -7,5 +7,3 @@ submit: "送信"
 progress: "送信中 ..."
 succeeded: "送信に成功しました"
 failed: "送信に失敗しました"
-
-
