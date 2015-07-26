@@ -13,8 +13,12 @@ h1 {
   background: url("/assets/slack.png") no-repeat left top;
 }
 
-.help-block .message {
+.help-block > span {
   display: none;
+}
+
+.help-block .default {
+  display: block;
 }
 
 .footer {
@@ -25,3 +29,4 @@ h1 {
 .right .github-fork-ribbon {
   background-color: #333;
 }
+
