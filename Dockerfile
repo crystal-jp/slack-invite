@@ -4,7 +4,8 @@ MAINTAINER Pine Mizune <pinemz@gmail.com>
 EXPOSE 8080
 
 RUN sudo apt-get update
-RUN sudo apt-get install git -y # for crystal deps
+RUN sudo apt-get install -y --no-install-recommends git # for crystal deps
+RUN sudo apt-get install -y --no-install-recommends libyaml-dev # for YAML
 
 ADD . /opt/slack-invite
 WORKDIR /opt/slack-invite
