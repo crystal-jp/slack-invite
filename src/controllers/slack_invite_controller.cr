@@ -21,7 +21,7 @@ class SlackInviteController < Controller
     lang = /en\/?$/ === request.path ? :en : :ja
 
     @texts = @langs[lang] as Hash
-    @team  = lang.to_s
+    @lang = @team = lang.to_s
 
     html render("index")
   end
