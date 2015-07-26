@@ -1,7 +1,13 @@
 module Slack
-  def self.invite(email)
-    team = ENV["SLACK_TEAM"]
-    token = ENV["SLACK_TOKEN"]
+  def self.invite(email, team = "ja")
+    case team
+    when "en"
+      team = ENV["SLACK_TEAM_EN"]
+      token = ENV["SLACK_TOKEN_EN"]
+    else
+      team = ENV["SLACK_TEAM"]
+      token = ENV["SLACK_TOKEN"]
+    end
 
     url = "https://#{team}.slack.com/api/users.admin.invite"
     form = {

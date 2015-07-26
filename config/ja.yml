@@ -1,0 +1,11 @@
+title: "Crystal-JP Slack Invite"
+heading: "Crystal-JP Slack"
+description: "日本語による Slack 上の Crystal 情報チャンネル"
+email: "メールアドレス"
+helper: "招待メールを送るメールアドレスを入力してください。"
+submit: "送信"
+progress: "送信中 ..."
+succeeded: "送信に成功しました"
+failed: "送信に失敗しました"
+
+

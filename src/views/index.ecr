@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Crystal-JP Slack Invite</title>
+<title><%= texts["title"] %></title>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cosmo/bootstrap.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css">
 <link rel="stylesheet" href="/assets/invite.css">
@@ -14,23 +14,26 @@
 <div class="container">
   <div clas="row">
     <div class="col-md-8 col-md-offset-2">
-      <h1>Crystal-JP Slack</h1>
-      <p>日本語による Slack 上の Crystal 情報チャンネル</p>
+      <h1><%= texts["heading"] %></h1>
+      <p><%= texts["description"] %></p>
     </div>
 
     <div class="form-wrapper col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
       <form action="#" role="form">
+        <input type="hidden" id="team" value="<%= team %>">
         <div class="form-group">
-          <label class="email">メールアドレス</label>
+          <label class="email"><%= texts["email"] %></label>
           <input type="email" class="form-control" required placeholder="example@example.com" id="email">
           <span class="help-block">
-            <span class="default">招待メールを送るメールアドレスを入力してください。</span>
-            <span class="message"></span>
+            <span class="default"><%= texts["helper"] %></span>
+            <span class="progress"><%= texts["progress"] %></span>
+            <span class="succeeded"><%= texts["succeeded"] %></span>
+            <span class="failed"><%= texts["failed"] %> <span class="opt"></span></span>
           </span>
         </div>
 
         <div class="form-group">
-          <input type="submit" value="送信" class="btn btn-default pull-right">
+          <input type="submit" value="<%= texts["submit"] %>" class="btn btn-default pull-right">
         </div>
       </form>
     </div>
@@ -38,7 +41,7 @@
   </div>
 
   <div class="footer col-xs-12">
-    <p class="text-center">Powered by <a href="http://crystal.connpass.com/">Crystal-JP</a>.</p>
+    <p class="text-center">Powered by <a href="https://github.com/crystal-jp">Crystal-JP</a>.</p>
   </div>
 </div>
 
