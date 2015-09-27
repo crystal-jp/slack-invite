@@ -1,5 +1,23 @@
 require 'rye'
 
+task :default => :build
+task :build do
+  sh 'mkdir -p bin'
+  sh 'crystal build src/app.cr -o ./bin/slack-invite --release'
+end
+
+task :spec do
+  sh 'crystal spec'
+end
+
+task :clean do
+ rm_rf '.crystal'
+ rm_rf '.deps'
+ rm_rf '.shards'
+ rm_rf 'libs'
+ rm_rf 'bin'
+end
+
 task :deploy do
   rbox = Rye::Box.new('pine.moe', :user => 'ec2-user')
 

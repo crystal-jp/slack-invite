@@ -4,9 +4,12 @@
 
 .crystal
 .deps
+.shards
 libs
+shard.lock
 
 .bundle
 vendor/bundle
 
 /app
+/bin

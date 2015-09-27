@@ -12,6 +12,7 @@ WORKDIR /opt/slack-invite
 
 RUN crystal --version
 RUN crystal deps
-RUN crystal build src/app.cr -o slack-invite --release
+RUN mkdir -p bin
+RUN crystal build src/app.cr -o ./bin/slack-invite --release
 
-ENTRYPOINT PORT=8080 ./slack-invite
+ENTRYPOINT PORT=8080 ./bin/slack-invite

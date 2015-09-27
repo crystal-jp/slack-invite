@@ -9,18 +9,18 @@ class SlackInviteController < Controller
     super
 
     @langs = {
-      :ja => YAML.load(File.read("config/ja.yml")),
-      :en => YAML.load(File.read("config/en.yml")),
+      :ja => YAML.load(File.read("config/ja.yml")) as Hash,
+      :en => YAML.load(File.read("config/en.yml")) as Hash,
     }
 
     @texts = {} of String => String
   end
 
-  view "index", "#{__DIR__}/../views"
+  view "index", "#{__DIR__}/../views/"
   def index
     lang = /en\/?$/ === request.path ? :en : :ja
 
-    @texts = @langs[lang] as Hash
+    @texts = @langs[lang]
     @lang = @team = lang.to_s
 
     html render("index")
