@@ -18,7 +18,7 @@ You need to install Crystal compiler.
 
 ```
 $ crystal --version
-Crystal 0.7.4 [42efdbf] (Wed Jun 24 01:02:21 UTC 2015)
+Crystal 0.8.0 [e363b63] (Sat Sep 19 12:18:15 UTC 2015)
 $ crystal deps # Install dependencies
 $ crystal build src/app.cr # Compile
 $ PORT=$PORT ./app # Run!
