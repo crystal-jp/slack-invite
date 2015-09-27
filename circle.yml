@@ -11,6 +11,7 @@ dependencies:
 
   override:
     - crystal deps
+    - bundle install --deployment --path=vendor/bundle
 
   cache_directories:
     - .crystal
@@ -19,11 +20,11 @@ dependencies:
 
 test:
   override:
-    - crystal spec
+    - bundle exec rake
+    - bundle exec rake spec
 
 deployment:
   production:
     branch: master
     commands:
-      - bundle install --deployment --path=vendor/bundle
       - bundle exec rake deploy
