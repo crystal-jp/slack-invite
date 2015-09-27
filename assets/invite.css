@@ -10,7 +10,7 @@ body {
 
 h1 {
   padding: 2px 0 0 42px;
-  background: url("/assets/slack.png") no-repeat left top;
+  background: url("/slack.png") no-repeat left top;
 }
 
 .help-block > span {
