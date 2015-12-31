@@ -21,8 +21,8 @@ module Slack
     raise "http_error" unless res.status_code == 200
     raise "bad_response" unless res.headers["Content-Type"].starts_with? "application/json"
 
-    body = JSON.parse(res.body) as Hash(String, JSON::Type)
-    raise body["error"].to_s unless body["ok"] as Bool
+    body = JSON.parse(res.body)
+    raise body["error"].as_s unless body["ok"].as_bool
   end
 end
 

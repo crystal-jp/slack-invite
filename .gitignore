@@ -11,5 +11,4 @@ shard.lock
 .bundle
 vendor/bundle
 
-/app
 /bin

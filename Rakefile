@@ -1,6 +1,11 @@
 require 'rye'
 
-task :default => :build
+task :default => [ :clean, :install, :build ]
+
+task :install do
+  sh 'crystal deps'
+end
+
 task :build do
   sh 'mkdir -p bin'
   sh 'crystal build src/app.cr -o ./bin/slack-invite --release'
