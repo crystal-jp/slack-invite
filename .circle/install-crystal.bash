@@ -1,6 +1,8 @@
 #!/bin/bash
 
-if type -p crystal >/dev/null 2>&1; then
+CRYSTAL_VERSION=`cat .crystal-version`
+
+if crenv versions | grep $CRYSTAL_VERSION; then
     exit
 fi
 
