@@ -26,6 +26,8 @@ class SlackInviteController
     begin
       if email.is_a? String && team.is_a? String
         Slack.invite(email, team)
+      else
+        raise "request parameter error"
       end
     rescue e
       result = {
