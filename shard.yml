@@ -1,9 +1,9 @@
 name: slack-invite
-version: 0.2.0
+version: 0.3.0
 
 dependencies:
-  amethyst:
-    github: Codcore/amethyst
-    commit: ad53218cf362e46b3236c68ffb08fc6840404962
+  kemal:
+    github: sdogruyol/kemal
+    version: 0.5.0
 
 license: MIT
