@@ -18,10 +18,10 @@ You need to install Crystal compiler.
 
 ```
 $ crystal --version
-Crystal 0.8.0 [e363b63] (Sat Sep 19 12:18:15 UTC 2015)
+Crystal 0.10.0 [9d59a34] (Wed Dec 23 17:24:02 UTC 2015)
 $ crystal deps # Install dependencies
 $ crystal build src/app.cr # Compile
-$ PORT=$PORT ./app # Run!
+$ ./app --port 8080 # Run!
 ```
 
 ## Author
