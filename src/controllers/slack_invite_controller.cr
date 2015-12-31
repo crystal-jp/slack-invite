@@ -1,13 +1,7 @@
 require "yaml"
 
-require "amethyst/all"
-
-class SlackInviteController < Controller
-  actions :index, :invite
-
+class SlackInviteController
   def initialize
-    super
-
     @langs = {
       :ja => YAML.load(File.read("config/ja.yml")) as Hash,
       :en => YAML.load(File.read("config/en.yml")) as Hash,
@@ -16,23 +10,23 @@ class SlackInviteController < Controller
     @texts = {} of String => String
   end
 
-  view "index", "#{__DIR__}/../views/"
-  def index
-    lang = /en\/?$/ === request.path ? :en : :ja
+  def index(env)
+    lang  = /en\/?$/ === env.request.path ? :en : :ja
+    texts = @langs[lang]
+    team  = lang.to_s
 
-    @texts = @langs[lang]
-    @lang = @team = lang.to_s
-
-    html render("index")
+    render "views/index.ecr"
   end
 
-  def invite
-    email = request.request_parameters["email"]
-    team  = request.request_parameters["team"]
+  def invite(env)
+    email = env.params["email"]
+    team  = env.params["team"]
     result = { :ok => true }
 
     begin
-      Slack.invite(email, team)
+      if email.is_a? String && team.is_a? String
+        Slack.invite(email, team)
+      end
     rescue e
       result = {
         :ok => false,
@@ -40,7 +34,7 @@ class SlackInviteController < Controller
       }
     end
 
-    json result.to_json
+    result.to_json
   end
 end
 
