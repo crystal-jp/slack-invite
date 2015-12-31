@@ -1,36 +1,38 @@
-FROM manastech/crystal:0.8.0
+FROM ubuntu:14.04
 MAINTAINER Pine Mizune <pinemz@gmail.com>
 
 EXPOSE 8080
 
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends git # for crystal deps
-RUN apt-get install -y --no-install-recommends libyaml-dev # for YAML
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        git \
+        curl \
+        gcc \
+        libc6-dev \
+        libyaml-dev \
+        zlib1g-dev \
+        libssl-dev
 
-RUN git config --global http.sslVerify false
-
-RUN git clone --depth 1 -b v0.4.0 https://github.com/ysbaddaden/shards.git
-WORKDIR shards
-RUN crystal build ./src/shards.cr -o ./bin/shards
-RUN cp ./bin/shards /usr/bin/shards
-WORKDIR ..
-RUN rm -rf shards
-
-RUN apt-get clean -y
-RUN rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
+RUN curl http://dist.crystal-lang.org/apt/setup.sh | sudo bash && \
+    apt-key adv --keyserver keys.gnupg.net --recv-keys 09617FD37CC06B54 && \
+    echo "deb http://dist.crystal-lang.org/apt crystal main" > /etc/apt/sources.list.d/crystal.list && \
+    apt-get install -y crystal
 
 ADD . /opt/slack-invite
 WORKDIR /opt/slack-invite
 
-RUN rm -rf libs
-RUN rm -rf .crystal
-RUN rm -rf .shards
-RUN rm -rf bin
+RUN rm -rf libs && \
+    rm -rf .crystal && \
+    rm -rf .shards && \
+    rm -rf bin
 
-RUN crystal --version
-RUN shards --version
-RUN shards install
-RUN mkdir -p bin
-RUN crystal build src/app.cr -o ./bin/slack-invite --release
+RUN git config --global http.sslVerify false && \
+    shards install && \
+    mkdir -p bin && \
+    crystal build src/app.cr -o ./bin/slack-invite --release
 
-ENTRYPOINT PORT=8080 ./bin/slack-invite
+RUN apt-get purge -y git curl gcc && \
+    apt-get clean -y && \
+    rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
+
+ENTRYPOINT ./bin/slack-invite --port 8080
