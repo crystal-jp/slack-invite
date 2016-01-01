@@ -24,7 +24,7 @@ task :clean do
 end
 
 task :deploy do
-  rbox = Rye::Box.new('pine.moe', :user => 'ec2-user')
+  rbox = Rye::Box.new('pine.moe', :user => 'ec2-user', :keys => '~/.ssh/id_pine.moe')
 
   rbox.cd %w[slack-invite]
   rbox.git %w[reset --hard origin/master]
