@@ -27,4 +27,4 @@ deployment:
   production:
     branch: master
     commands:
-      - bundle exec rake deploy
+      - git push ssh://569ab9917628e1eb9b000110@crystal-pinemz2.rhcloud.com/~/git/crystal.git/ master

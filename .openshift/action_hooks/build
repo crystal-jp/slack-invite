@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+echo "Running .openshift/action_hooks/build"
+
+cd $OPENSHIFT_REPO_DIR
+
+"$OPENSHIFT_REPO_DIR/.openshift/script/crystal-deps"
+"$OPENSHIFT_REPO_DIR/.openshift/script/crystal-build" src/app.cr -o ./bin/slack-invite --release
