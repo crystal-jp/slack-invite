@@ -1,7 +1,9 @@
 slack-invite
 ------------
 
-[![Circle CI](https://circleci.com/gh/crystal-jp/slack-invite/tree/master.svg?style=svg)](https://circleci.com/gh/crystal-jp/slack-invite/tree/master)
+[![Circle CI](https://img.shields.io/circleci/project/crystal-jp/slack-invite/master.svg)](https://circleci.com/gh/crystal-jp/slack-invite/tree/master)
+[![Dependency Status](https://shards.rocks/badge/github/crystal-jp/slack-invite/status.svg)](https://shards.rocks/github/crystal-jp/slack-invite)
+[![devDependency Status](https://shards.rocks/badge/github/crystal-jp/slack-invite/dev_status.svg)](https://shards.rocks/github/crystal-jp/slack-invite)
 
 Automatic inviting in Slack Team for Crystal-JP.
 
