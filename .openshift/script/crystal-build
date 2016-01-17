@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-
-CRYSTAL_BIN=$OPENSHIFT_DATA_DIR/crystal-0.10.2/bin/crystal
-LIBEVENT_PATH=$OPENSHIFT_DATA_DIR/libevent/lib
-LD_FLAGS="-L$LIBEVENT_PATH -L/usr/lib64/mysql"
-
-exec "$CRYSTAL_BIN" build --link-flags "$LD_FLAGS" $*

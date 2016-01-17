@@ -3,12 +3,12 @@
 set -e
 echo "Running .openshift/action_hooks/start"
 
-# stop webserver
-cd "$OPENSHIFT_REPO_DIR"
-"./.openshift/action_hooks/stop"
-
-# start webserver
-cd "$OPENSHIFT_REPO_DIR"
-nohup "./.openshift/script/crystal-env" "./bin/slack-invite" \
-	-p $OPENSHIFT_DIY_PORT -b $OPENSHIFT_DIY_IP \
-    >> "$OPENSHIFT_LOG_DIR/slack-invite.log" 2>&1 &
+# # stop webserver
+# cd "$OPENSHIFT_REPO_DIR"
+# "./.openshift/action_hooks/stop"
+#
+# # start webserver
+# cd "$OPENSHIFT_REPO_DIR"
+# nohup "./.openshift/script/crystal-env" "./bin/slack-invite" \
+# 	-p $OPENSHIFT_DIY_PORT -b $OPENSHIFT_DIY_IP \
+#     >> "$OPENSHIFT_LOG_DIR/slack-invite.log" 2>&1 &

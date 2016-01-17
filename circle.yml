@@ -1,7 +1,3 @@
-machine:
-  ruby:
-    version: 2.2.2
-
 dependencies:
   pre:
     - .circle/install-crenv.bash
@@ -10,21 +6,19 @@ dependencies:
     - crystal --version
 
   override:
-    - crystal deps
-    - bundle install --deployment --path=vendor/bundle
+    - make clean
+    - make deps
 
   cache_directories:
-    - .crystal
-    - .deps
     - ~/.crenv
 
 test:
   override:
-    - bundle exec rake
-    - bundle exec rake spec
+    - make build
+    - make release
 
 deployment:
   production:
     branch: master
     commands:
-      - git push ssh://569ab9917628e1eb9b000110@crystal-pinemz2.rhcloud.com/~/git/crystal.git/ master
+      - make deploy
