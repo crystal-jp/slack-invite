@@ -5,7 +5,7 @@ dependencies:
     - .circle/install-crystal.bash
     - crystal --version
     - sudo apt-get update -qq
-    - sudo apt-get install libssl-dev -y
+    - sudo apt-get install libssl-dev -qq -y
 
   override:
     - make clean
