@@ -28,6 +28,7 @@ clean:
 
 deploy:
 	sed -i '/\/bin/d' .gitignore
+	chmod +x bin/slack-invite
 	git add .gitignore bin/
 	git config --global user.email 'pinemz@gmail.com'
 	git config --global user.name 'Pine Mizune'
